@@ -3,6 +3,8 @@ package com.hmdp.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -55,6 +57,7 @@ public class VoucherOrder implements Serializable {
     /**
      * 下单时间
      */
+
     private LocalDateTime createTime;
 
     /**
@@ -65,6 +68,7 @@ public class VoucherOrder implements Serializable {
     /**
      * 核销时间
      */
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime useTime;
 
     /**
